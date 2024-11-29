@@ -1,0 +1,43 @@
+import random
+
+# Predefined user input phrases and bot responses
+helo = ['hi', 'hello', 'hello there', 'good day']
+bye = ['bye', 'good bye', 'have a good day', 'see you later']
+howareyou = ['how are you', 'how are you doing', 'whats up']
+name = ['whats your name', 'what is your name', 'do you have any name', 'what should i call you']
+farm = ['i want to buy milk', 'what you offer', 'what i should buy', 'is anything specific']
+open = ['when you guys open', 'time', 'specific hours', 'timing of farm']
+
+print('-------------------------------------------')
+print("Bot: Hi! I'm Minko Bot. Type 'quit' to end the chat.\n")
+
+while True:
+    # Take user input
+    user = input('Ask anything: ').lower().strip()
+    
+    # Check for exit condition
+    if user in ['quit', 'exit']:
+        print("Bot: Goodbye! Have a great day!\n")
+        break
+    
+    # Check user input against categories
+    if any(phrase in user for phrase in helo):
+        bot_ans = ['Hi', 'Hi there', 'Hey, what’s up?', 'How can I help you?']
+        print('Bot:', random.choice(bot_ans), '\n')
+    elif any(phrase in user for phrase in bye):
+        bot_ans = ['Bye!', 'See you again!', 'Good day!', 'Take care!']
+        print('Bot:', random.choice(bot_ans), '\n')
+    elif any(phrase in user for phrase in howareyou):
+        bot_ans = ['I’m good.', 'Doing great, thanks for asking!', 'I’m doing great, how about you?']
+        print('Bot:', random.choice(bot_ans), '\n')
+    elif any(phrase in user for phrase in name):
+        bot_ans = ['I’m Minko Bot.', 'My name is Minko Bot.', 'You can call me Minko Bot.']
+        print('Bot:', random.choice(bot_ans), '\n')
+    elif any(phrase in user for phrase in farm):
+        bot_ans = ['Yes, you can buy milk.', 'Our milk is one of the best.', 'Milk from our dairy farm is pure and fresh!']
+        print('Bot:', random.choice(bot_ans), '\n')
+    elif any(phrase in user for phrase in open):
+        bot_ans = ['We are open from 9 AM to 9 PM.', 'Our timings are 9 AM to 9 PM.', 'We operate for 12 hours daily.']
+        print('Bot:', random.choice(bot_ans), '\n')
+    else:
+        print('Bot: Sorry, I didn’t understand that.\n')
